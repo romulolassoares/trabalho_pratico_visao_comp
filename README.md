@@ -1,0 +1,3 @@
+## Bibliotecas
+
+- tensorflow
