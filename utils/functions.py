@@ -61,6 +61,6 @@ def plot_confusion_matrix(model, dataloader, classes, device, type):
     plt.ylabel('Actual')
     plt.title('Confusion Matrix')
     formatted_datetime = datetime.now().strftime("%d_%m_%H_%M")
-    plt.savefig(f'../images/cm_{formatted_datetime}_{type}.png')
+    plt.savefig(f'./images/cm_{formatted_datetime}_{type}.png')
 
 
