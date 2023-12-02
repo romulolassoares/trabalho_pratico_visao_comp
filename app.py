@@ -41,7 +41,7 @@ transform = transforms.Compose([transforms.Resize((IMAGE_DIM, IMAGE_DIM)),
 
 st.subheader('Dataset')
 with st.spinner('Loadind cifar10'):
-    trainset, testset = load_cifar10(n_size=50, transform=transform)
+    trainset, testset = load_cifar10(n_size=100, transform=transform)
 st.success('Cifar 10 Loaded!!!')
 
 # Defina o dataloader
@@ -61,7 +61,7 @@ st.write('AlexNet created')
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(alexnet.parameters(), lr=0.01, momentum=0.9)
 # Treine a rede
-num_epochs = 2
+num_epochs = 20
 train_losses = []
 test_losses = []
 
