@@ -39,17 +39,19 @@ class AlexNet(nn.Module):
             nn.ReLU(inplace=True),
             nn.Linear(4096, num_classes),
         )
-        self.init_bias()
+        # self.init_bias()
     
     def init_bias(self):
         for layer in self.net:
             if isinstance(layer, nn.Conv2d):
                 nn.init.normal_(layer.weight, mean=0, std=0.01)
                 nn.init.constant_(layer.bias, 0)
-
-        nn.init.constant_(self.net[4].bias, 1)
-        nn.init.constant_(self.net[10].bias, 1)
-        nn.init.constant_(self.net[12].bias, 1)
+        if isinstance(self.net[4], nn.Conv2d):
+            nn.init.constant_(self.net[4].bias, 1)
+        if isinstance(self.net[10], nn.Conv2d):
+            nn.init.constant_(self.net[10].bias, 1)
+        if isinstance(self.net[12], nn.Conv2d):
+            nn.init.constant_(self.net[12].bias, 1)
 
     def forward(self, x):
         """
