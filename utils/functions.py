@@ -177,14 +177,18 @@ def evaluate_model(model, dataloader, classes,device):
     tqdm_dataloader.close()
 
     # Calculate and print classification report
-    print("Classification Report:")
-    print(classification_report(all_labels, all_predictions, target_names=classes))
+    # print("Classification Report:")
+    report_dict = classification_report(all_labels, all_predictions, target_names=classes,output_dict=True)
 
-    # Calculate and plot confusion matrix
+    # Calcular e plotar a matriz de confusão
     cm = confusion_matrix(all_labels, all_predictions)
-    plt.figure(figsize=(len(classes), len(classes)))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=classes, yticklabels=classes)
-    plt.xlabel('Predicted')
-    plt.ylabel('Actual')
-    plt.title('Confusion Matrix')
-    plt.show()
+    fig, ax = plt.subplots(figsize=(len(classes), len(classes)))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=classes, yticklabels=classes, ax=ax)
+
+    # Configurar rótulos e título do gráfico, se desejar
+    ax.set_xlabel('Previsto')
+    ax.set_ylabel('Real')
+    ax.set_title('Matriz de Confusão')
+
+    # Retornar a figura e o objeto de eixo
+    return fig, ax, report_dict
