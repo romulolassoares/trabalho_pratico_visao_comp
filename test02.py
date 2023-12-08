@@ -36,7 +36,7 @@ CIFAR10_CLASSES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog
 # Total de classes
 NUM_CLASSES = len(CIFAR10_CLASSES)
 # Porcentagem total do dataset
-PERCENT = 50
+PERCENT = 100
 
 # ========================================================================================
 # Daqui para baixo não precisa de alterações
