@@ -7,6 +7,19 @@ from tqdm import tqdm
 from typing import Callable
 from sklearn.metrics import confusion_matrix, accuracy_score, recall_score, f1_score,classification_report
 from datetime import datetime
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt
+from PIL import Image
+
+import torch
+import torch.nn as nn
+import torchvision
+import torchvision.transforms as transforms
+
+import os
+from glob import glob
+
 
 # ========================================================================================
 # Load cifar10 dataset
@@ -28,6 +41,30 @@ def load_cifar10(n_size: int = 100, transform: Callable = None):
     testset = torch.utils.data.Subset(test_dataset, range(testset_size))
 
     return trainset, testset
+
+
+# ========================================================================================
+# Load custom dataset
+# ========================================================================================
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, data_path, transform=None):
+        self.transform = transform
+        self.data = data_path
+        self.label = [int(p.split('/')[-2] == 'santa') for p in data_path]
+        self.data_len = len(self.data)
+        
+    def __len__(self):
+        return self.data_len
+    
+    def __getitem__(self, index):
+        image = Image.open(self.data[index], mode='r')
+        image = image.convert('RGB')
+        
+        if self.transform:
+            image = self.transform(image)
+            
+        self.label[index] = np.array(self.label[index])
+        return image, torch.from_numpy(self.label[index])
 
 
 # ========================================================================================
@@ -62,29 +99,31 @@ def plot_confusion_matrix(model, dataloader, classes, device, type):
 # ========================================================================================
 # Evaluate Model
 # ========================================================================================
-def evaluate_model(model, test_loader, device):
-    model.eval()
-    all_predictions = []
-    all_labels = []
+# def evaluate_model(model, test_loader, device):
+#     model.eval()
+#     all_predictions = []
+#     all_labels = []
 
-    with torch.no_grad():
-        for inputs, labels in tqdm(test_loader, desc="Evaluation"):
-            inputs, labels = inputs.to(device), labels.to(device)
-            outputs = model(inputs)
-            predictions = torch.argmax(outputs, dim=1)
-            all_predictions.extend(predictions.cpu().numpy())
-            all_labels.extend(labels.cpu().numpy())
+#     with torch.no_grad():
+#         for inputs, labels in tqdm(test_loader, desc="Evaluation"):
+#             inputs, labels = inputs.to(device), labels.to(device)
+#             outputs = model(inputs)
+#             predictions = torch.argmax(outputs, dim=1)
+#             all_predictions.extend(predictions.cpu().numpy())
+#             all_labels.extend(labels.cpu().numpy())
 
-    accuracy = accuracy_score(all_labels, all_predictions)
-    recall = recall_score(all_labels, all_predictions, average='weighted')
-    f1 = f1_score(all_labels, all_predictions, average='weighted')
+#     accuracy = accuracy_score(all_labels, all_predictions)
+#     recall = recall_score(all_labels, all_predictions, average='weighted')
+#     f1 = f1_score(all_labels, all_predictions, average='weighted')
 
-    print(f"Accuracy: {accuracy:.4f}")
-    print(f"Recall: {recall:.4f}")
-    print(f"F1 Score: {f1:.4f}")
+#     print(f"Accuracy: {accuracy:.4f}")
+#     print(f"Recall: {recall:.4f}")
+#     print(f"F1 Score: {f1:.4f}")
     
     
-
+# ========================================================================================
+# Make training
+# ========================================================================================
 def make_train(model, num_epochs, optimizer, criterion, train_loader, test_loader,device):
     metrics = []
     total_steps = 0
