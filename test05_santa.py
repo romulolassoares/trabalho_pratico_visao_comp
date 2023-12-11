@@ -32,7 +32,7 @@ LR_INIT = 0.012
 # Dimensão das imagens
 IMAGE_DIM = 227  
 # Lista de classes do dataset
-CIFAR10_CLASSES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
+CIFAR10_CLASSES = ['Santa', 'Not Santa']
 # Total de classes
 NUM_CLASSES = len(CIFAR10_CLASSES)
 # Porcentagem total do dataset
