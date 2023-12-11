@@ -1,6 +1,6 @@
 import tensorflow as tf
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPool2D, Flatten, Dense, MaxPooling2D, ZeroPadding2D, Input
+from keras.models import Sequential 
+from keras.layers import Conv2D, MaxPool2D, Flatten, Dense, MaxPooling2D, ZeroPadding2D, BatchNormalization, Input
 
 class Vgg():
     def __init__(self,n):
@@ -36,6 +36,7 @@ class Vgg():
         x = Flatten(name="flatten")(x)
         x = Dense(4096, activation="relu", name="fc1")(x)
         x = Dense(4096, activation="relu", name="fc2")(x)
+        # x = BatchNormalization()(x)
 
         output = Dense(n, activation='softmax', name="predictions")(x)
 

@@ -1,6 +1,6 @@
 {
-  "epoca": 25,
-  "lote": 32,
+  "epoca": 5,
+  "lote": 64,
   "momento": 0,
   "decaimento": 0.0005,
   "tx_inical": 0.01,

@@ -1,7 +1,7 @@
 {
-  "epoca": 25,
+  "epoca": 5,
   "lote": 32,
-  "momento": 0,
+  "momento": 0.9,
   "decaimento": 0.0005,
   "tx_inical": 0.01,
   "dimensao": 32,
