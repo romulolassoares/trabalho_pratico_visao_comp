@@ -162,5 +162,7 @@ cython_debug/
 
 cifar-10-batches-py/
 cifar-10-python.tar.gz
+santas.zip
+is that santa/
 
 /vision
