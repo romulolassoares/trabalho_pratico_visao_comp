@@ -1,0 +1,51 @@
+% ----------------------------------------------------------
+% Teste e25b32class10_20231210_111905
+% ----------------------------------------------------------
+\subsubsection{Teste e25b32class10_20231210_111905 - AlexNet (Is That a Santa)}
+
+Informações utilizadas para o treinamento.
+
+\begin{table}[ht]
+   \centering
+   \caption{Treinamento}
+   \label{tab:modelos}
+   \begin{tabular}{| c | c | }
+      \hline 
+      \textbf{Informação} & \textbf{Descrição} \\
+      \hline \hline 
+      Rede & AlexNet \\
+      \hline
+      Número de épocas & 5\\
+      \hline
+      Tamanho do lote & 32\\
+      \hline
+      Taxa inicial & 0.01 \\
+      \hline
+      Taxa de decaimento & 0.0005 \\
+      \hline
+      Total de classes & 10\\
+      \hline
+      Dataset & CIFAR-10\\
+      \hline
+   \end{tabular} 
+\end{table}
+
+Resultados obtidos após treinamento.
+
+\csvautotabular{tests/e25b32class10_20231210_111905/report.csv}
+
+\begin{figure}[ht]
+ \begin{center}
+   \includegraphics[scale=1]{tests/e25b32class10_20231210_111905/confusion_matrix.png}
+  \caption{Matriz de Confusão}
+  \label{fig:fig03}
+ \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+ \begin{center}
+   \includegraphics[scale=0.8]{tests/e25b32class10_20231210_111905/loss_over_time.png}
+  \caption{Gráfico de Perda}
+  \label{fig:fig04}
+ \end{center}
+\end{figure}

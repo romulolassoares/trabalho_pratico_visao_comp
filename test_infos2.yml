@@ -1,0 +1,117 @@
+tests:
+  - name: test2_4
+    model: vgg
+    num_epochs: 5
+    batch_size: 64
+    momentum: 0.9
+    lr_decay: 0.0005
+    lr_init: 0.01
+    dataset: santa
+# ----------------------------------------------------------------------------------------
+  - name: test3_1
+    model: alexnet
+    num_epochs: 25
+    batch_size: 32
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: cifar
+
+  - name: test3_2
+    model: alexnet
+    num_epochs: 25
+    batch_size: 32
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: santa
+
+  - name: test3_3
+    model: vgg
+    num_epochs: 25
+    batch_size: 32
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: cifar
+
+  - name: test3_4
+    model: vgg
+    num_epochs: 25
+    batch_size: 32
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: santa
+# ----------------------------------------------------------------------------------------
+  - name: test4_1
+    model: alexnet
+    num_epochs: 25
+    batch_size: 64
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: cifar
+
+  - name: test4_2
+    model: alexnet
+    num_epochs: 25
+    batch_size: 64
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: santa
+
+  - name: test4_3
+    model: vgg
+    num_epochs: 25
+    batch_size: 64
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: cifar
+
+  - name: test4_4
+    model: vgg
+    num_epochs: 25
+    batch_size: 64
+    momentum: 0.7
+    lr_decay: 0.0006
+    lr_init: 0.012
+    dataset: santa
+# ----------------------------------------------------------------------------------------
+  - name: test5_1
+    model: alexnet
+    num_epochs: 50
+    batch_size: 128
+    momentum: 0.9
+    lr_decay: 0.0005
+    lr_init: 0.01
+    dataset: cifar
+
+  - name: test5_2
+    model: alexnet
+    num_epochs: 50
+    batch_size: 128
+    momentum: 0.9
+    lr_decay: 0.0005
+    lr_init: 0.01
+    dataset: santa
+
+  - name: test5_3
+    model: vgg
+    num_epochs: 50
+    batch_size: 128
+    momentum: 0.9
+    lr_decay: 0.0005
+    lr_init: 0.01
+    dataset: cifar
+
+  - name: test5_4
+    model: vgg
+    num_epochs: 50
+    batch_size: 128
+    momentum: 0.9
+    lr_decay: 0.0005
+    lr_init: 0.01
+    dataset: santa
