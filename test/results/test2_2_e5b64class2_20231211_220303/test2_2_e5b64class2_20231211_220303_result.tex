@@ -1,0 +1,62 @@
+% ----------------------------------------------------------
+% Teste test2_2_e5b64class2_20231211_220303
+% ----------------------------------------------------------
+\subsubsection{Teste test2_2_e5b64class2_20231211_220303 - AlexNet (Is That a Santa)}
+
+Informações utilizadas para o treinamento.
+
+\begin{table}[ht]
+   \centering
+   \caption{Treinamento}
+   \label{tab:modelos}
+   \begin{tabular}{| c | c | }
+      \hline 
+      \textbf{Informação} & \textbf{Descrição} \\
+      \hline \hline 
+      Rede & AlexNet \\
+      \hline
+      Número de épocas & 5\\
+      \hline
+      Tamanho do lote & 64\\
+      \hline
+      Taxa inicial & 0.01 \\
+      \hline
+      Taxa de decaimento & 0.0005 \\
+      \hline
+      Total de classes & 2\\
+      \hline
+      Dataset & CIFAR-10\\
+      \hline
+   \end{tabular} 
+\end{table}
+
+Resultados obtidos após treinamento.
+
+\begin{tabular}{lrrrr}
+\toprule
+  Unnamed: 0 &  precision &   recall &  f1-score &    support \\
+\midrule
+       Santa &   1.000000 & 0.055375 &  0.104938 & 307.000000 \\
+   Not Santa &   0.514238 & 1.000000 &  0.679204 & 307.000000 \\
+    accuracy &   0.527687 & 0.527687 &  0.527687 &   0.527687 \\
+   macro avg &   0.757119 & 0.527687 &  0.392071 & 614.000000 \\
+weighted avg &   0.757119 & 0.527687 &  0.392071 & 614.000000 \\
+\bottomrule
+\end{tabular}
+
+
+\begin{figure}[ht]
+ \begin{center}
+   \includegraphics[scale=1]{tests/test2_2_e5b64class2_20231211_220303/confusion_matrix.png}
+  \caption{Matriz de Confusão}
+  \label{fig:fig03}
+ \end{center}
+\end{figure}
+
+\begin{figure}[ht]
+ \begin{center}
+   \includegraphics[scale=0.8]{tests/test2_2_e5b64class2_20231211_220303/loss_over_time.png}
+  \caption{Gráfico de Perda}
+  \label{fig:fig04}
+ \end{center}
+\end{figure}

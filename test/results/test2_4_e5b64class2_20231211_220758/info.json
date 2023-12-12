@@ -1,0 +1,13 @@
+{
+  "epoca": 5,
+  "lote": 64,
+  "momento": 0.9,
+  "decaimento": 0.0005,
+  "tx_inical": 0.01,
+  "dimensao": 32,
+  "classes": [
+    "Santa",
+    "Not Santa"
+  ],
+  "total_classes": 2
+}
